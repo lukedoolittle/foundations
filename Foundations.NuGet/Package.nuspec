@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Foundations</id>
+    <version>0.0.1</version>
+    <title>Foundations</title>
+    <authors>lukedoolittle</authors>
+    <owners></owners>
+    <description>
+      A toolbelt of items commonly used in C# projects
+    </description>
+    <releaseNotes>
+    </releaseNotes>
+    <summary>
+      A toolbelt of items commonly used in C# projects
+    </summary>
+    <language>en-US</language>
+    <projectUrl>https://github.com/lukedoolittle/Foundations</projectUrl>
+    <iconUrl>https://s3.amazonaws.com/lukedoolittle/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <copyright>Copyright  2016</copyright>
+    <dependencies>
+        <group targetFramework="portable45-net45+win8+wpa81">
+        </group>
+    </dependencies>
+    <references></references>
+    <tags></tags>
+  </metadata>
+  <files>
+    <file src="lib\" target="lib" />
+    <file src="tools\" target="tools" />
+    <file src="content\" target="content" />
+  </files>
+</package>

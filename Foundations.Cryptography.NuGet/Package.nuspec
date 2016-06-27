@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Foundations.Cryptography</id>
+    <version>0.0.1</version>
+    <title>Foundations.Cryptography</title>
+    <authors>lukedoolittle</authors>
+    <owners></owners>
+    <description>
+      Common crypto functions simplfied by wrapping portable Bouncycastle
+    </description>
+    <releaseNotes>
+    </releaseNotes>
+    <summary>
+      Common crypto functions simplfied by wrapping portable Bouncycastle
+    </summary>
+    <language>en-US</language>
+    <projectUrl>https://github.com/lukedoolittle/Foundations</projectUrl>
+    <iconUrl>https://s3.amazonaws.com/lukedoolittle/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <copyright>Copyright  2016</copyright>
+    <dependencies>
+        <group targetFramework="portable45-net45+win8+wpa81">
+          <dependency id="Portable.BouncyCastle" version="1.8.1" />
+        </group>
+    </dependencies>
+    <references></references>
+    <tags></tags>
+  </metadata>
+  <files>
+    <file src="lib\" target="lib" />
+    <file src="tools\" target="tools" />
+    <file src="content\" target="content" />
+  </files>
+</package>
