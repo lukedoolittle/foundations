@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Foundations.Serialization</id>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <title>Foundations.Serialization</title>
     <authors>lukedoolittle</authors>
     <owners></owners>
@@ -23,6 +23,7 @@
     <dependencies>
       <group targetFramework="portable45-net45+win8+wpa81">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="Foundations" version="0.0.1" />
       </group>
     </dependencies>
     <references></references>

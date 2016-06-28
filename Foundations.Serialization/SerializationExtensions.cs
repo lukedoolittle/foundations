@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -59,6 +60,30 @@ namespace Foundations.Serialization
         {
             string json = Serialize(source, false);
             return Deserialize<TEntity>(json, true);
+        }
+
+        public static TEntity AsEntity<TEntity>(
+            this HttpValueCollection source,
+            bool withType = true)
+        {
+            var dictionary = source.Cast<string>()
+                .ToDictionary(p => p, p => (object)source[p]);
+
+            if (withType)
+            {
+                var rootType = typeof(TEntity);
+                var typedDictionary = new Dictionary<string, object>
+                {
+                    {"$type", $"{rootType.FullName}, {rootType.GetTypeInfo().Assembly.GetName().Name}"}
+                };
+                foreach (var item in dictionary)
+                {
+                    typedDictionary.Add(item.Key, item.Value);
+                }
+                dictionary = typedDictionary;
+            }
+
+            return dictionary.AsEntity<TEntity>(true);
         }
 
         private static TEntity Deserialize<TEntity>(
