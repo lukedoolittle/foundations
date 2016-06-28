@@ -21,7 +21,7 @@
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <copyright>Copyright  2016</copyright>
     <dependencies>
-      <group targetFramework="net45">
+      <group>
         <dependency id="Foundations" version="0.0.1" />
       </group>
     </dependencies>
@@ -30,6 +30,9 @@
   </metadata>
   <files>
     <file src="lib\" target="lib" />
+    <file src="lib\net452\Foundations.Http.dll" target="lib\net452" />
+    <file src="lib\Xamarin.iOS10\Foundations.Http.dll" target="lib\Xamarin.iOS10" />
+    <file src="lib\MonoAndroid60\Foundations.Http.dll" target="lib\MonoAndroid60" />
     <file src="tools\" target="tools" />
     <file src="content\" target="content" />
   </files>
