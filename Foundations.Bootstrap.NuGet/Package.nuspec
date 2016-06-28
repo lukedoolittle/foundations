@@ -27,7 +27,7 @@
         <dependency id="CommonServiceLocator" version="1.3" />
         <dependency id="Newtonsoft.Json" version="9.0.1" />
         <dependency id="Foundations" version="0.0.1" />
-        <dependency id="Foundations.Serialization" version="0.0.1" />
+        <dependency id="Foundations.Serialization" version="0.0.3" />
       </group>
     </dependencies>
     <references></references>

@@ -9,6 +9,28 @@ namespace Foundations.Serialization
 {
     public static class SerializationExtensions
     {
+        static SerializationExtensions()
+        {
+            try
+            {
+                JsonConvert.DefaultSettings();
+            }
+            catch (NullReferenceException)
+            {
+                var contractResolver = new PrivateMembersContractResolver();
+                JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+                {
+                    MissingMemberHandling = MissingMemberHandling.Ignore,
+                    DefaultValueHandling = DefaultValueHandling.Ignore,
+                    ContractResolver = contractResolver,
+                    TypeNameHandling = TypeNameHandling.All,
+                    DateFormatHandling = DateFormatHandling.IsoDateFormat,
+                    DateParseHandling = DateParseHandling.None,
+                    DateTimeZoneHandling = DateTimeZoneHandling.Unspecified,
+                };
+            }
+        }
+
         public static IDictionary<string, object> AsDictionary(
             this object source,
             bool withType = true)
