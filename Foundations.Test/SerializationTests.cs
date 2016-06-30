@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Foundations.Serialization;
+using Newtonsoft.Json;
 using Xunit;
 
 namespace Foundations.Test
@@ -39,10 +40,33 @@ namespace Foundations.Test
             Assert.NotEmpty(actual.OauthSecret);
         }
 
-        public class OAuthMock
+        [Fact]
+        public void SerializingAndThenDeserializingAnObjectWithDatetimeOffsetPreservesTime()
+        {
+            var target = new OAuthMock();
+            target.SetDateCreated(DateTimeOffset.Now);
+
+            var intermediate = target.AsJson();
+            var actual = intermediate.AsEntity<OAuthMock>();
+
+            Assert.Equal(target.DateCreated, actual.DateCreated);
+        }
+
+        public class OAuthMock : OAuthMockBase
         {
             public string OauthToken { get; set; }
             public string OauthSecret { get; set; }
+        }
+
+        public class OAuthMockBase
+        {
+            [JsonProperty("dateCreated")]
+            public DateTimeOffset DateCreated { get; protected set; }
+
+            public void SetDateCreated(DateTimeOffset date)
+            {
+                DateCreated = date;
+            }
         }
     }
 }
