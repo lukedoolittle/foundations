@@ -24,5 +24,25 @@ namespace Foundations.Test
 
             Assert.False(string.IsNullOrEmpty(actual));
         }
+
+        [Fact]
+        public void SerializingAQuerystringWorks()
+        {
+            var target = "OauthToken=jlkasdjflasjdf&OauthSecret=lajsdflkjasdlkf";
+
+            var querystring = HttpUtility.ParseQueryString(target);
+            var actual = querystring.AsEntity<OAuthMock>();
+
+            Assert.NotNull(actual.OauthToken);
+            Assert.NotEmpty(actual.OauthToken);
+            Assert.NotNull(actual.OauthSecret);
+            Assert.NotEmpty(actual.OauthSecret);
+        }
+
+        public class OAuthMock
+        {
+            public string OauthToken { get; set; }
+            public string OauthSecret { get; set; }
+        }
     }
 }

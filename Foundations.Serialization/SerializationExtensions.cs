@@ -88,8 +88,10 @@ namespace Foundations.Serialization
             this HttpValueCollection source,
             bool withType = true)
         {
-            var dictionary = source.Cast<string>()
-                .ToDictionary(p => p, p => (object)source[p]);
+            var dictionary = source
+                .ToDictionary<HttpValue, string, object>(
+                    value => value.Key, 
+                    value => value.Value);
 
             if (withType)
             {
